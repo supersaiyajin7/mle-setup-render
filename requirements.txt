@@ -1,0 +1,14 @@
+# Core API stack
+fastapi
+uvicorn[standard]
+pydantic
+
+# Hugging Face + Torch (for the LLM)
+transformers
+torch
+
+# Testing
+pytest
+
+# For test client
+httpx

@@ -1,15 +1,13 @@
-# tests/test_model.py
-
+from app.services.model import SentimentModel
 import pytest
-from app.model import SentimentModel
 
-def test_prediction_output_structure():
-    model = SentimentModel()
-    result = model.predict("I love machine learning!")
-    assert "label" in result and "score" in result
-    assert result["label"] in {"POSITIVE", "NEGATIVE"}
+model = SentimentModel()
 
-def test_prediction_empty_input():
-    model = SentimentModel()
+def test_model_positive():
+    result = model.predict("I love this!")
+    assert result["label"] in ["POSITIVE", "NEGATIVE"]
+    assert 0 <= float(result["score"]) <= 1
+
+def test_model_empty_input():
     with pytest.raises(ValueError):
-        model.predict("")
+        model.predict(" ")

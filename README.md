@@ -2,16 +2,21 @@
 deploy a simple app on render in this structure
 
 
-llm-sentiment-api/
-├── app/
-│   ├── main.py           # FastAPI app instance
-│   ├── api.py            # API routes
-│   ├── schemas.py        # Pydantic models
-│   ├── model.py          # LLM model logic
-│  
-├── tests/
-│   ├── test_api.py
-│   └── test_model.py
+app/
+├── __init__.py
+├── main.py
+├── api/
+│   ├── __init__.py
+│   ├── sentiment.py
+│   └── summarize.py
+├── schemas/
+│   ├── __init__.py
+│   ├── sentiment.py
+│   └── summarize.py
+├── services/
+│   ├── __init__.py
+│   ├── model.py
+│   └── summarizer.py
 ├── Dockerfile
 ├── requirements.txt
 ├── .github/
@@ -19,3 +24,5 @@ llm-sentiment-api/
 │       └── ci.yml        # CI/CD pipeline
 └── README.md
 
+
+![CI](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME/actions/workflows/ci.yml/badge.svg)

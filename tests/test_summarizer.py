@@ -1,15 +1,12 @@
-from fastapi.testclient import TestClient
-from app.main import app
+from app.services.summarizer import Summarizer
 
-client = TestClient(app)
+summarizer = Summarizer()
 
-def test_summarize():
-    payload = {
-        "text": "Machine learning is a field of artificial intelligence that uses statistical techniques to give computer systems the ability to learn from data."
-    }
-    response = client.post("/summarize", json=payload)
-    assert response.status_code == 200
-    data = response.json()
-    assert "summary" in data
-    assert isinstance(data["summary"], str)
-    assert len(data["summary"]) > 0
+def test_summarizer():
+    input_text = (
+        "Machine learning enables computers to learn from data. "
+        "It is widely used in many industries to predict trends and automate decisions."
+    )
+    output = summarizer.summarize(input_text)
+    assert isinstance(output, str)
+    assert len(output) > 10

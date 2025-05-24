@@ -1,5 +1,3 @@
-# app/model.py
-
 from transformers import pipeline
 from typing import Dict
 
@@ -15,4 +13,3 @@ class SentimentModel:
             "label": result["label"],
             "score": f"{result['score']:.4f}"
         }
-

@@ -12,3 +12,4 @@ pytest
 
 # For test client
 httpx
+loguru

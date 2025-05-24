@@ -1,4 +1,4 @@
-# app/schemas.py
+## FILE: app/schemas/sentiment.py
 
 from pydantic import BaseModel
 
@@ -8,9 +8,3 @@ class SentimentRequest(BaseModel):
 class SentimentResponse(BaseModel):
     label: str
     score: str
-
-class SummaryInput(BaseModel):
-    text: str
-
-class SummaryOutput(BaseModel):
-    summary: str

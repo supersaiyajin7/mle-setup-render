@@ -1,16 +1,14 @@
-# tests/test_api.py
-
 from fastapi.testclient import TestClient
 from app.main import app
 
 client = TestClient(app)
 
-def test_predict_endpoint():
-    response = client.post("/predict", json={"text": "This is amazing!"})
+def test_sentiment_predict_success():
+    response = client.post("/predict", json={"text": "This is great!"})
     assert response.status_code == 200
-    data = response.json()
-    assert "label" in data and "score" in data
+    assert "label" in response.json()
+    assert "score" in response.json()
 
-def test_predict_empty_text():
+def test_sentiment_predict_empty():
     response = client.post("/predict", json={"text": ""})
     assert response.status_code == 400

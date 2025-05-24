@@ -5,8 +5,8 @@ from app.core.logging import setup_logging
 logger = setup_logging()
 
 app = FastAPI()
-app.include_router(sentiment.router, prefix="/api")
-app.include_router(summarize.router, prefix="/api")
+app.include_router(sentiment.router, prefix="/sentiment")
+app.include_router(summarize.router, prefix="/summarize")
 
 @app.on_event("startup")
 def startup_event():
